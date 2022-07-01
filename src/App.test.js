@@ -1,8 +1,14 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import "@testing-library/jest-dom"
+import App from "./App";
+import userEvent from '@testing-library/user-event';
 
-test('renders learn react link', () => {
+it('should render post api data', async() => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Search the post by ID/i)).toBeInTheDocument();
+  const input = screen.getByRole('textbox');
+  userEvent.type(input,'1');
+  const search = screen.getByRole('button', {name:/search/i})
+  userEvent.click(search);  
 });
