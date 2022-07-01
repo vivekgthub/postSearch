@@ -12,14 +12,15 @@ function App() {
       <h1>Welcome</h1>
       <h2>Search the post by ID</h2>
       <span>
-        <h4>
+        <label>
           {/* Post ID:{" "} */}
           <label data-testid='searchLabel' name='searchLabel'>Post ID:</label>
-          <input
+          <input placeholder="enter id to search"
             onChange={(eve) => {
               setId(eve.target.value);
             }}
           ></input>
+        </label>
           <button
             onClick={() => {
               getPost(id);
@@ -27,7 +28,6 @@ function App() {
           >
             Search
           </button>
-        </h4>
       </span>
     </div>
   );
